@@ -1,4 +1,4 @@
-﻿namespace AoCDay2;
+﻿namespace Day2;
 
 public enum Input
 {
