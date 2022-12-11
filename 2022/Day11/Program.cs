@@ -10,16 +10,11 @@ public static class Program
         var file = File.ReadAllLines("input.txt");
         
         var monkeys = GetMonkeys(file);
-        var mod = 1;
-        foreach (var monkey in monkeys)
-        {
-            mod *= monkey.Test;
-        }
-        SimulateRounds(ref monkeys, 20, true, mod);
+        SimulateRounds(ref monkeys, 20, true);
         PrintMonkeyBusiness(monkeys);
         
         monkeys = GetMonkeys(file);
-        SimulateRounds(ref monkeys, 10000, false, mod);
+        SimulateRounds(ref monkeys, 10000, false);
         PrintMonkeyBusiness(monkeys);
     }
 
@@ -30,15 +25,15 @@ public static class Program
         Console.WriteLine(result);
     }
 
-    private static void SimulateRounds(ref List<Monkey> monkeys, int rounds, bool worryEffect, int mod)
+    private static void SimulateRounds(ref List<Monkey> monkeys, int rounds, bool worryEffect)
     {
         for (var i = 0; i < rounds; i++)
         {
-            monkeys = SimulateRound(monkeys, worryEffect, mod);
+            monkeys = SimulateRound(monkeys, worryEffect);
         }
     }
 
-    private static List<Monkey> SimulateRound(List<Monkey> monkeys, bool worryEffect, int mod)
+    private static List<Monkey> SimulateRound(List<Monkey> monkeys, bool worryEffect)
     {
         foreach (var monkey in monkeys)
         {
